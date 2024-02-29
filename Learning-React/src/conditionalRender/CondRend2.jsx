@@ -1,23 +1,25 @@
+{/*This is the other way I wrote it:*/}
 function Item({ name, importance }) {
+  let show = importance > 0 && '(importance: ' + importance + ')'
   return (
     <li className="item">
-      {/*the space you see between {name} and {cond rend} counts as space here because it is inside the li tag */}
-      {name} {importance>0 && "(Importance: " + importance + ")" }
-      {/*my fixed(italicized) answer:
-      {name} {importance>0 && <i>(Importance: {importance})</i>}
-      react.dev's answer:
+      {name} <i>{show}</i>
+    </li>
+    /* react.dev's way
+    <li className="item">
       {name}
       {importance > 0 && ' '}
       {importance > 0 &&
-        <i>(Importance: {importance})</i>
+        <i>(Importance: {importance})</i>  
       }
+
       //Note that in react.dev's answer... the ' ' is necessary because if you put the {importance && ...} in the next line, no spaces will be inserted unlike my answer above. Hence if you put it this way:
       {name}
       {importance>0 && "(Importance: " + importance + ")" }
       it will look this way: SpaceSuit(Importance: 9) //without spaces
-      */}
-    </li>
-  );
+      );
+      */
+  )
 }
 
 export default function PackingList() {
@@ -39,5 +41,5 @@ export default function PackingList() {
         />
       </ul>
     </section>
-  )
+  );
 }
