@@ -2,6 +2,7 @@ import { LetsImport } from "./importExportComponents/ImpExp"
 import { SingleCurly } from "./jsxCurlies/JSXCurlies"
 import PackingList from "./conditionalRender/CondRend1"
 {/*import myImage from "./assets/pogi-papa.jpg"*/}
+import Profile from "./passingProps/AdjustImageSizeBasedOnProp"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <NestedOne />
       <NestedTwo />
       <LetsImport />
+      <Profile />
       <PackingList />
       <SingleCurly />
     </>
