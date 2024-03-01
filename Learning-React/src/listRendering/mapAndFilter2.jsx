@@ -1,49 +1,46 @@
+{/*My answer: */}
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
-{/*My answer: */}
 export default function List() {
-  const chemist = people.filter(person => person.profession === 'chemist')
-  const nonChemist = people.filter(person => person.profession !== 'chemist')
-  const listItems = chemist.map(person =>
-      <li key={person.id}>
-        <img
-          src={getImageUrl(person)}
-          alt={person.name}
-        />
-        <p>
-          <b>{person.name}:</b>
-          {' ' + person.profession + ' '}
-          known for {person.accomplishment}
-        </p>
-      </li>
-  );
-  const others = nonChemist.map(person => 
-      <li key={person.id}>
-        <img
-          src={getImageUrl(person)}
-          alt={person.name}
-        />
-        <p>
-          <b>{person.name}:</b>
-          {' ' + person.profession + ' '}
-          known for {person.accomplishment}
-        </p>
-      </li>
-  );
-      
-
-  
+  const chem = people.filter(person => person.profession === 'chemist')
+  const chemists = chem.map(person =>
+    <li key={person.id}>
+      <img
+        src={getImageUrl(person)}
+        alt={person.name}
+      />
+      <p>
+        <b>{person.name}:</b>
+        {' ' + person.profession + ' '}
+        known for {person.accomplishment}
+      </p>
+    </li>
+  )
+  const otherSci = people.filter(person => person.profession !== 'chemist')
+  const others = otherSci.map(person => 
+    <li key={person.id}>
+      <img
+        src={getImageUrl(person)}
+        alt={person.name}
+      />
+      <p>
+        <b>{person.name}:</b>
+        {' ' + person.profession + ' '}
+        known for {person.accomplishment}
+      </p>
+    </li>
+  )
   return (
     <article>
-      <h1>Scientists</h1>
-      <h2>Chemists</h2>
-      <ul>{listItems}</ul>
-      <h2>Everyone Else</h2>
+      <h1>Chemists</h1>
+      <ul>{chemists}</ul>
+      <h2>Other Scientists</h2>
       <ul>{others}</ul>
     </article>
   );
 }
+
 
 
 {/*react.dev's solutions */}
